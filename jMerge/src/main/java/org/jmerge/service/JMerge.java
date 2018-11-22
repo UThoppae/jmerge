@@ -29,6 +29,7 @@ public class JMerge {
 	
 	/**
 	 * This method is used to merge all the properties from source to destination.
+	 * It will copy all value deep through all contained objects
 	 * 	
 	 * @param source
 	 * @param dest
@@ -67,7 +68,6 @@ public class JMerge {
 	
 	private void mergeProperties(Field sourceField,Field destField,Object source, Object dest) throws Exception  {
 		
-			
 			if(sourceField.getType().isPrimitive() || sourceField.getType() == String.class) {
 				destField.set(dest, sourceField.get(source));
 			}else if(Map.class.isAssignableFrom(sourceField.getType())) {

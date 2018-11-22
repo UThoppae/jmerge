@@ -12,6 +12,12 @@ import org.jmerge.service.JMerge;
 import org.junit.Before;
 import org.junit.Test;
 
+/*
+ * Test class to test jMerge
+ * 
+ * @author uthoppae
+ *
+ */
 public class JMergeTest {
 	
 	JMerge jMerge = new JMerge();
