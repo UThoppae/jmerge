@@ -1,5 +1,8 @@
 package org.jmerge.service.test;
 
+import java.util.List;
+import java.util.Set;
+
 public class Person {
 	
 	private String firstName;
@@ -9,7 +12,12 @@ public class Person {
 	private String email;
 	
 	private Address address;
+	
+	private List<Phone> phones;
 
+	private Set<Phone> phonesSet;
+	
+	private Company company;
 	
 
 	public String getFirstName() {
@@ -43,5 +51,32 @@ public class Person {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public List<Phone> getPhones() {
+		return phones;
+	}
+
+	public void setPhones(List<Phone> phones) {
+		this.phones = phones;
+	}
+
+	public Set<Phone> getPhonesSet() {
+		return phonesSet;
+	}
+
+	public void setPhonesSet(Set<Phone> phonesSet) {
+		this.phonesSet = phonesSet;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	
+	
+	
 
 }
