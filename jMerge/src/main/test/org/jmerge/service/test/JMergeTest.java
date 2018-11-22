@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.jmerge.service.JMerge;
@@ -77,7 +78,7 @@ public class JMergeTest {
 		
 		destMobilePhone = new Phone();
 		destMobilePhone.setNumber(3345678);
-		destMobilePhone.setType("M");
+		destMobilePhone.setType("");
 		
 		
 	}
@@ -103,6 +104,9 @@ public class JMergeTest {
 	
 	@Test
 	public void testMergeList() throws Exception {
+		
+		sourcePerson = new Person();
+		destPerson = new Person();
 		
 		List<Phone> sourcePhones = new ArrayList<>();
 		sourcePhones.add(sourceHomePhone);
@@ -131,6 +135,9 @@ public class JMergeTest {
 	@Test
 	public void testMergeSet() throws Exception {
 		
+		sourcePerson = new Person();
+		destPerson = new Person();
+		
 		Set<Phone> sourcePhones = new HashSet<>();
 		sourcePhones.add(sourceHomePhone);
 		sourcePhones.add(sourceMobilePhone);
@@ -141,8 +148,6 @@ public class JMergeTest {
 		destPhones.add(destMobilePhone);
 		destPerson.setPhonesSet(destPhones);
 		
-		
-		
 		jMerge.merge(sourcePerson, destPerson);
 		
 		Phone sourcePhone = (Phone)sourcePerson.getPhonesSet().toArray()[0];
@@ -152,6 +157,34 @@ public class JMergeTest {
 		assertEquals(sourcePhone.getNumber(),destPhone.getNumber());
 		
 		assertEquals(sourcePhone.getType(),destPhone.getType());
+		
+	}
+	
+	@Test
+	public void testMergeMap() throws Exception{
+		
+		sourcePerson = new Person();
+		destPerson = new Person();
+		
+		Company sourceCompany = new Company();
+		sourceCompany.setCompanyName("Grape");
+		Address sourceAddress = new Address();
+		sourceAddress.setCity("Chennai");
+		sourceCompany.setAddress(sourceAddress);
+		sourcePerson.setCompany(sourceCompany);
+		
+		Company destCompany = new Company();
+		destCompany.setCompanyName("Apple");
+		Address destAddress = new Address();
+		destAddress.setCity("SanJose");
+		destCompany.setAddress(destAddress);
+		destPerson.setCompany(destCompany);
+		
+		assertNotEquals(sourcePerson.getCompany().getCompanyName(), destPerson.getCompany().getCompanyName());
+		
+		jMerge.merge(sourcePerson, destPerson);
+		
+		assertEquals(sourcePerson.getCompany().getCompanyName(), destPerson.getCompany().getCompanyName());
 		
 	}
 

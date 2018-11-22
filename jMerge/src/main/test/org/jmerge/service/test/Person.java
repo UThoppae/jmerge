@@ -17,6 +17,8 @@ public class Person {
 
 	private Set<Phone> phonesSet;
 	
+	private Company company;
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -65,6 +67,15 @@ public class Person {
 	public void setPhonesSet(Set<Phone> phonesSet) {
 		this.phonesSet = phonesSet;
 	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	
 	
 	
 
