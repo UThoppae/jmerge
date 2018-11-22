@@ -1,6 +1,6 @@
 # Compiled source #
 ###################
-/target/*
+*/target/**
 *.com
 *.class
 *.dll
