@@ -65,7 +65,7 @@ public class JMerge {
 		
 	}
 	
-	private void mergeProperties(Field sourceField,Field destField,Object source, Object dest) throws IllegalAccessException,Exception  {
+	private void mergeProperties(Field sourceField,Field destField,Object source, Object dest) throws Exception  {
 		
 			
 			if(sourceField.getType().isPrimitive() || sourceField.getType() == String.class) {
@@ -84,7 +84,7 @@ public class JMerge {
 			
 	}
 	
-	private void mergeCollections(Field sourceField,Field destField,Object source, Object dest) throws IllegalAccessException,Exception {
+	private void mergeCollections(Field sourceField,Field destField,Object source, Object dest) throws Exception {
 		Collection<?> sourceObjectList = (Collection<?>)sourceField.get(source);
 		Object[] sourceObjs = sourceObjectList.toArray();
 		Collection<?> destObjectList = (Collection<?>)destField.get(dest);
@@ -94,7 +94,7 @@ public class JMerge {
 		} 
 	}
 	
-	private void mergeMap(Field sourceField,Field destField,Object source, Object dest) throws IllegalAccessException,Exception {
+	private void mergeMap(Field sourceField,Field destField,Object source, Object dest) throws Exception {
 		Map<?, ?> sourceMap = (Map<?, ?>)sourceField.get(source);
 		Map<?, ?> destMap = (Map<?, ?>)destField.get(dest);
 		
